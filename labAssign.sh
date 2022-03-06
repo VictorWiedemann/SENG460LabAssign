@@ -55,13 +55,28 @@ SaveRelevantInfo()
 {
     whoisInformation="$1"
     outputDestFile="$2"
+    lineValue="$3"
+    valueToSearchFor="$4"
     #"information is available here $1 and $2"
-    #value=$(getLine "Registrant")
-    returnValue=$(echo "$whoisInformation" | awk -F : '$1=="Registrar"{print $2}')
-    echo $returnValue
+    # value=$(getLine "Registrant")
+    # returnValue=$(echo "$whoisInformation" | awk -F : '$1=="Registrar"{print $2}')
+    # if [ "$returnValue" != "" ]; then
+    #     echo "value: $returnValue"
+    # fi
+    
+    echo "$valueToSearchFor"
+    #stringToUse='$1=='"${valueToSearchFor}"'{print $2}'
+    stringPrefix='$1=="'
+    stringSuffix='"{print $2}'
+    stringToUse="${stringPrefix}${valueToSearchFor}${stringSuffix}"
+    echo $stringToUse
+    # returnValue=$(echo "$whoisInformation" | awk -F : '$1=="$valueToSearchFor"{print $2}')
+    returnValue=$(echo "$whoisInformation" | awk -F : "$stringToUse")
+    echo "return value is $returnValue"
     if [ "$returnValue" != "" ]; then
-        echo "value: $returnValue"
+        echo "$lineValue: $returnValue"
     fi
+
 }
 
 
@@ -76,17 +91,19 @@ runDataGather()
     fi
 
     #check to make sure that the whois command worked.
-    rawDestDir="./rawOutputFor$1.txt"
+    rawDestDir="./raw_output_for_$1.txt"
     echo "raw dest dir is: $rawDestDir"
+    rm "$rawDestDir" &> /dev/null
     echo "$whoisInfo" >> $rawDestDir
 
-    outputDestDir="./usefulInformationFor$1.txt"
+    outputDestDir="./useful_information_for_$1.txt"
+    
     echo "output file for information is $outputDestDir"
-
+    rm "$outputDestDir" &> /dev/null
     echo "TODO VICTOR CHANGE THE HEADER HERE" >> "$outputDestDir"
 
-    SaveRelevantInfo "$whoisInfo" "$outputDestDir"
-
+    #SaveRelevantInfo "$whoisInfo" "$outputDestDir"
+    SaveRelevantInfo "$whoisInfo" "$outputDestDir" "Starter" "Registrar" 
     return 0
 }
 

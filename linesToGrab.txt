@@ -1,0 +1,167 @@
+erika@erika-VirtualBox:~/dev$ whois 98.137.11.163
+
+#
+# ARIN WHOIS data and services are subject to the Terms of Use
+# available at: https://www.arin.net/resources/registry/whois/tou/
+#
+# If you see inaccuracies in the results, please report at
+# https://www.arin.net/resources/registry/whois/inaccuracy_reporting/
+#
+# Copyright 1997-2022, American Registry for Internet Numbers, Ltd.
+#
+
+
+NetRange:       98.136.0.0 - 98.139.255.255
+CIDR:           98.136.0.0/14
+NetName:        A-YAHOO-US9
+NetHandle:      NET-98-136-0-0-1
+Parent:         NET98 (NET-98-0-0-0-0)
+NetType:        Direct Allocation
+OriginAS:       AS10310
+Organization:   Oath Holdings Inc. (OH-207)
+RegDate:        2007-12-07
+Updated:        2019-05-01
+Ref:            https://rdap.arin.net/registry/ip/98.136.0.0
+
+
+OrgName:        Oath Holdings Inc.
+OrgId:          OH-207
+Address:        770 BROADWAY FL 4
+City:           New York
+StateProv:      NY
+PostalCode:     10003-9558
+Country:        US
+RegDate:        2018-12-21
+Updated:        2019-05-16
+Ref:            https://rdap.arin.net/registry/entity/OH-207
+
+
+OrgTechHandle: OTC2-ARIN
+OrgTechName:   Oath Tech Contact
+OrgTechPhone:  +1-408-349-5555 
+OrgTechEmail:  rir-tech@yahooinc.com
+OrgTechRef:    https://rdap.arin.net/registry/entity/OTC2-ARIN
+
+OrgNOCHandle: OATHN-ARIN
+OrgNOCName:   Oath NOC
+OrgNOCPhone:  +1-408-349-5555 
+OrgNOCEmail:  rir-noc@yahoo-inc.com
+OrgNOCRef:    https://rdap.arin.net/registry/entity/OATHN-ARIN
+
+OrgAbuseHandle: OATHA-ARIN
+OrgAbuseName:   Oath Abuse
+OrgAbusePhone:  +1-408-349-3300 
+OrgAbuseEmail:  rir-abuse@yahoo-inc.com
+OrgAbuseRef:    https://rdap.arin.net/registry/entity/OATHA-ARIN
+
+
+#
+# ARIN WHOIS data and services are subject to the Terms of Use
+# available at: https://www.arin.net/resources/registry/whois/tou/
+#
+# If you see inaccuracies in the results, please report at
+# https://www.arin.net/resources/registry/whois/inaccuracy_reporting/
+#
+# Copyright 1997-2022, American Registry for Internet Numbers, Ltd.
+#
+
+erika@erika-VirtualBox:~/dev$ whois steampowered.com
+   Domain Name: STEAMPOWERED.COM
+   Registry Domain ID: 32635791_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.networksolutions.com
+   Registrar URL: http://networksolutions.com
+   Updated Date: 2020-06-10T07:13:45Z
+   Creation Date: 2000-08-09T16:03:56Z
+   Registry Expiry Date: 2022-08-09T16:03:56Z
+   Registrar: Network Solutions, LLC
+   Registrar IANA ID: 2
+   Registrar Abuse Contact Email: abuse@web.com
+   Registrar Abuse Contact Phone: +1.8003337680
+   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+   Name Server: A1-164.AKAM.NET
+   Name Server: A11-67.AKAM.NET
+   Name Server: A24-64.AKAM.NET
+   Name Server: A26-65.AKAM.NET
+   Name Server: A8-66.AKAM.NET
+   Name Server: A9-67.AKAM.NET
+   DNSSEC: unsigned
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+
+Domain Name: STEAMPOWERED.COM
+Registry Domain ID: 32635791_DOMAIN_COM-VRSN
+Registrar WHOIS Server: whois.networksolutions.com
+Registrar URL: http://networksolutions.com
+Updated Date: 2021-03-10T18:58:07Z
+Creation Date: 2000-08-09T16:03:56Z
+Registrar Registration Expiration Date: 2022-08-09T16:03:56Z
+Registrar: Network Solutions, LLC
+Registrar IANA ID: 2
+Reseller: 
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Registry Registrant ID: 
+Registrant Name: Valve Corporation
+Registrant Organization: Valve Corporation
+Registrant Street: 10400 NE 4TH ST STE 1400
+Registrant City: BELLEVUE
+Registrant State/Province: WA
+Registrant Country: US
+Registrant Phone: +1.4258899642
+Registrant Phone Ext: 
+Registrant Fax: +1.4258274843
+Registrant Fax Ext: 
+Registrant Email: itgext@valvesoftware.com
+Registry Admin ID: 
+Admin Name: Grinstead, Chris
+Admin Organization: VALVE
+Admin Street: 10400 NE 4TH ST STE 1400 STE 1400
+Admin City: BELLEVUE
+Admin State/Province: WA
+Admin Postal Code: 98004-5174
+Admin Country: US
+Admin Phone: +1.4258899642
+Admin Phone Ext: 
+Admin Email: itgext@valvesoftware.com
+Registry Tech ID: 
+Tech Name: Grinstead, Chris
+Tech Organization: VALVE
+Tech City: BELLEVUE
+Tech State/Province: WA
+Tech Country: US
+Tech Phone: +1.4258899642
+Tech Phone Ext: 
+Tech Fax: 
+Tech Fax Ext: 
+Tech Email: itgext@valvesoftware.com
+Name Server: A1-164.AKAM.NET
+Name Server: A11-67.AKAM.NET
+Name Server: A24-64.AKAM.NET
+Name Server: A26-65.AKAM.NET
+Name Server: A8-66.AKAM.NET
+Name Server: A9-67.AKAM.NET
+DNSSEC: unsigned
+Registrar Abuse Contact Email: domain.operations@web.com
+Registrar Abuse Contact Phone: +1.8777228662
+URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/
+>>> Last update of WHOIS database: 2022-03-05T23:55:21Z <<<
+
+For more information on Whois status codes, please visit https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en
+
+
+The data in Networksolutions.com's WHOIS database is provided to you by
+Networksolutions.com for information purposes only, that is, to assist you in
+obtaining information about or related to a domain name registration
+record. Networksolutions.com makes this information available "as is," and
+does not guarantee its accuracy. By submitting a WHOIS query, you
+agree that you will use this data only for lawful purposes and that,
+under no circumstances will you use this data to: (1) allow, enable,
+or otherwise support the transmission of mass unsolicited, commercial
+advertising or solicitations via direct mail, electronic mail, or by
+telephone; or (2) enable high volume, automated, electronic processes
+that apply to Networksolutions.com  (or its systems). The compilation,
+repackaging, dissemination or other use of this data is expressly
+prohibited without the prior written consent of Networksolutions.com.
+Networksolutions.com reserves the right to modify these terms at any time.
+By submitting this query, you agree to abide by these terms.
+
+For more information on Whois status codes, please visit
+https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en.

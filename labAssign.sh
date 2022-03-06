@@ -57,28 +57,15 @@ SaveRelevantInfo()
     outputDestFile="$2"
     lineValue="$3"
     valueToSearchFor="$4"
-    #"information is available here $1 and $2"
-    # value=$(getLine "Registrant")
-    # returnValue=$(echo "$whoisInformation" | awk -F : '$1=="Registrar"{print $2}')
-    # if [ "$returnValue" != "" ]; then
-    #     echo "value: $returnValue"
-    # fi
-    
-    echo "$valueToSearchFor"
-    #stringToUse='$1=='"${valueToSearchFor}"'{print $2}'
+   
     stringPrefix='$1=="'
     stringSuffix='"{print $2}'
     stringToUse="${stringPrefix}${valueToSearchFor}${stringSuffix}"
-    echo $stringToUse
-    # returnValue=$(echo "$whoisInformation" | awk -F : '$1=="$valueToSearchFor"{print $2}')
     returnValue=$(echo "$whoisInformation" | awk -F : "$stringToUse")
-    echo "return value is $returnValue"
     if [ "$returnValue" != "" ]; then
-        echo "$lineValue: $returnValue"
+        echo "$lineValue: $returnValue" >> "$outputDestFile"
     fi
-
 }
-
 
 runDataGather()
 {
@@ -103,7 +90,16 @@ runDataGather()
     echo "TODO VICTOR CHANGE THE HEADER HERE" >> "$outputDestDir"
 
     #SaveRelevantInfo "$whoisInfo" "$outputDestDir"
-    SaveRelevantInfo "$whoisInfo" "$outputDestDir" "Starter" "Registrar" 
+    SaveRelevantInfo "$whoisInfo" "$outputDestDir" "StarterOfLine" "Registrar" 
+
+
+    echo "" > $outputDestDir
+    echo "NAME SERVER INFORMATION:" > $outputDestDir
+    echo "Note, some information may repeat" > $outputDestDir
+    echo "$whoisInfo" | grep "Name Server: " | sed 's/^[ \t]*//;s/[ \t]*$//' > $outputDestDir
+
+
+
     return 0
 }
 

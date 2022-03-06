@@ -15,19 +15,8 @@ printNoArguments()
     echo "www.website.com or website.com"
 }
 
-
-getSpecificLine()
-{
-    # sed -n 'Registry Domain ID:' $OUTPUT
-    INPUT='someletters_12345_moreleters.ext'
-    SUBSTRING=$(echo $INPUT| cut -d'_' -f 2)
-    echo $SUBSTRING
-    echo "Parameters are $1 and $2 "
-}
-
 runWhois()
 {
-    echo "runwhois"
     whoisOutput=$(whois $1)
     if [ "$?" == "0" ]; then
         #command worked, kick out with whois output
@@ -35,24 +24,18 @@ runWhois()
         return 0
     fi
 
-    echo "maybe www"
     stringWitoutWWW=$(echo "$1" | sed 's/^.*www.//')
-    echo $stringWitoutWWW
     whoisOutput=$(whois $stringWitoutWWW)
     if [ "$?" == "0" ]; then
         #command failed, kick out and print error
-        echo "whois with www worked"
         echo "$whoisOutput"
         return 0
     fi
 
-    echo "maybe email address?"
     stringWitoutAt=$(echo "$1" | sed 's/^.*@//')
-    echo $stringWitoutAt
     whoisOutput=$(whois $stringWitoutAt)
     if [ "$?" == "0" ]; then
         #command failed, kick out and print error
-        echo "whois with @ worked"
         echo "$whoisOutput"
         return 0
     fi
@@ -61,12 +44,24 @@ runWhois()
     return 1
 }
 
+# getLine()
+# {
+#     textToRead="$1"
+#     echo "this thang $textToRead"
+#     echo $(echo "$whoisInformation" | awk -F : '$1=="$textToRead"{print $2}')
+# }
+
 SaveRelevantInfo()
 {
-    whoisOutput=$1
-    outputfile=$2
-    echo "$whoisOutput and $outputfile"
-    value=$(echo "$")
+    whoisInformation="$1"
+    outputDestFile="$2"
+    #"information is available here $1 and $2"
+    #value=$(getLine "Registrant")
+    returnValue=$(echo "$whoisInformation" | awk -F : '$1=="Registrar"{print $2}')
+    echo $returnValue
+    if [ "$returnValue" != "" ]; then
+        echo "value: $returnValue"
+    fi
 }
 
 
@@ -81,22 +76,16 @@ runDataGather()
     fi
 
     #check to make sure that the whois command worked.
-    rawDestDir = "./rawOutputFor$1.txt"
+    rawDestDir="./rawOutputFor$1.txt"
     echo "raw dest dir is: $rawDestDir"
     echo "$whoisInfo" >> $rawDestDir
 
-    outputDestDir = "./usefulInformationFor$1.txt"
+    outputDestDir="./usefulInformationFor$1.txt"
     echo "output file for information is $outputDestDir"
 
     echo "TODO VICTOR CHANGE THE HEADER HERE" >> "$outputDestDir"
 
-    echo "$whoisInfo"
-    SaveRelevantInfo $whoisInfo $outputDestDir
-    echo "running whois Info"
-    echo "$whoisInfo"
-    #echo "$whoisInfo" | grep Country
-    
-    getSpecificLine "one" "two"
+    SaveRelevantInfo "$whoisInfo" "$outputDestDir"
 
     return 0
 }

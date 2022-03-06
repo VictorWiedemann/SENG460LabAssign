@@ -58,95 +58,95 @@
 
 #!/bin/bash
 
-printError()
-{
-    echo $'\nThat website does not seem to exist.'
-    echo "Please use a real website in the format of:"
-    echo "www.website.com or website.com"
-}
+# printError()
+# {
+#     echo $'\nThat website does not seem to exist.'
+#     echo "Please use a real website in the format of:"
+#     echo "www.website.com or website.com"
+# }
 
-printNoArguments()
-{
-    echo "WARNING!!!!!!"
-    echo "Please supply a website URL in the format of:"
-    echo "www.website.com or website.com"
-}
-
-
-getSpecificLine()
-{
-    # sed -n 'Registry Domain ID:' $OUTPUT
-    INPUT='someletters_12345_moreleters.ext'
-    SUBSTRING=$(echo $INPUT| cut -d'_' -f 2)
-    echo $SUBSTRING
-    echo "Parameters are $1 and $2 "
-}
-
-runWhois()
-{
-    echo "running whois"
-    whoisOutput=$(whois "$1")
-    if [ "$?" == "0" ]; then
-        #command worked, kick out with whois output
-        echo "whois worked"
-        echo whoisOutput
-        return 0
-    fi
-    echo $whoisOutput
-
-    echo "maybe www"
-    stringWitoutWWW=$(echo "$urlWithwww" | sed 's/^.*www.//')
-    #echo $stringWitoutWWW
-    whoisOutput=$(whois $stringWitoutWWW)
-    if [ "$?" == "0" ]; then
-        #command failed, kick out and print error
-        echo "whois with www worked"
-        echo whoisOutput
-        return 0
-    fi
-    echo "maybe email address?"
-    stringWitoutAt=$(echo "$urlWithwww" | sed 's/^.*@//')
-    #echo $stringWitoutWWW
-    whoisOutput=$(whois $stringWitoutAt)
-    if [ "$?" == "0" ]; then
-        #command failed, kick out and print error
-        echo "whois with @ worked"
-        echo whoisOutput
-        return 0
-    fi
-
-    printError
-    return 1
-}
+# printNoArguments()
+# {
+#     echo "WARNING!!!!!!"
+#     echo "Please supply a website URL in the format of:"
+#     echo "www.website.com or website.com"
+# }
 
 
+# getSpecificLine()
+# {
+#     # sed -n 'Registry Domain ID:' $OUTPUT
+#     INPUT='someletters_12345_moreleters.ext'
+#     SUBSTRING=$(echo $INPUT| cut -d'_' -f 2)
+#     echo $SUBSTRING
+#     echo "Parameters are $1 and $2 "
+# }
 
-runDataGather()
-{
-    OUTPUT=$($1)
-    whoisInfo=$(runWhois $OUTPUT)
-    #check to make sure that the whois command worked.
+# runWhois()
+# {
+#     echo "running whois"
+#     whoisOutput=$(whois "$1")
+#     if [ "$?" == "0" ]; then
+#         #command worked, kick out with whois output
+#         echo "whois worked"
+#         echo whoisOutput
+#         return 0
+#     fi
+#     echo $whoisOutput
 
-    echo "$whoisInfo"
-    #echo "$whoisInfo" | grep Country
+#     echo "maybe www"
+#     stringWitoutWWW=$(echo "$urlWithwww" | sed 's/^.*www.//')
+#     #echo $stringWitoutWWW
+#     whoisOutput=$(whois $stringWitoutWWW)
+#     if [ "$?" == "0" ]; then
+#         #command failed, kick out and print error
+#         echo "whois with www worked"
+#         echo whoisOutput
+#         return 0
+#     fi
+#     echo "maybe email address?"
+#     stringWitoutAt=$(echo "$urlWithwww" | sed 's/^.*@//')
+#     #echo $stringWitoutWWW
+#     whoisOutput=$(whois $stringWitoutAt)
+#     if [ "$?" == "0" ]; then
+#         #command failed, kick out and print error
+#         echo "whois with @ worked"
+#         echo whoisOutput
+#         return 0
+#     fi
+
+#     printError
+#     return 1
+# }
+
+
+
+# runDataGather()
+# {
+#     OUTPUT=$($1)
+#     whoisInfo=$(runWhois $OUTPUT)
+#     #check to make sure that the whois command worked.
+
+#     echo "$whoisInfo"
+#     #echo "$whoisInfo" | grep Country
     
-    getSpecificLine "one" "two"
+#     getSpecificLine "one" "two"
 
-    return 0
-}
+#     return 0
+# }
 
 
-#program start here
-if [ $# -eq 0 ]
-  then
-    printNoArguments
-    exit
-fi
+# #program start here
+# if [ $# -eq 0 ]
+#   then
+#     printNoArguments
+#     exit
+# fi
 
-echo "Grabbing information on the website: $1"
+# echo "Grabbing information on the website: $1"
 
-runDataGather $1
+# runDataGather $1
 
-echo "This script was built and tested on whois-server version 1.102.2 (HEREFORD)"
+# echo "This script was built and tested on whois-server version 1.102.2 (HEREFORD)"
 
 
